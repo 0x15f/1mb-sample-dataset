@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="author" content="Twisted">
+        <meta name="description" content="a 1mb.site link shortener!">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>a 1mb.site</title>
+		<style>
+		    body {
+              padding: 2rem;
+              background: #0d7fa5;
+              font-family: Josefin Sans;
+            }
+            
+            h1, p {
+              text-align: center;
+              color: #fff;
+            }
+            
+            a {
+              color: #fff;
+            }
+            
+            @media only screen and (min-width: 32rem) {
+              h1 {
+                font-size: 2rem  
+              }
+            }
+            
+            @media only screen and (min-width: 48rem) {
+              h1 {
+                font-size: 4rem  
+              }
+            }
+            
+            .content {
+              max-width: 60rem;
+              margin: auto;
+            }
+            
+            form {
+              background: rgba(0,0,0,0.2);
+              padding: 1rem;
+              display: block;
+            
+            }
+            
+            @media only screen and (min-width: 48rem) {
+              form {
+                display: flex;
+              }
+            }
+            
+            input {
+              border: none;
+              line-height: 3rem;
+              padding: 0 1rem;
+              width: 100%;
+              box-sizing: border-box;
+            }
+            
+            button {
+              background: #0d7fa5;
+              line-height: 3rem;
+              color: #FFF;
+              border: none;
+              padding: 0 3rem;
+              margin-top: 1rem;
+              width: 100%;
+            }
+            
+            button:hover {
+                cursor: pointer;
+            }
+            
+            @media only screen and (min-width: 32rem) {
+              button {
+                width: auto;
+              }
+            }
+            
+            @media only screen and (min-width: 48rem) {
+              button {
+                margin-left: 1rem;
+                margin-top: 0;
+              }
+            }
+		</style>
+	</head>
+	<body>
+		<div id="content">
+		    <h1>a <a href="https://1mb.site">1mb.site</a> link shortener!</h1>
+		    <p id="message">Enter a URL to get started!</p>
+		    <form action="https://api.1mb.site" method="POST" id="shorten">
+		        <input name="link" placeholder="Enter a link... (E.g. https://1mb.site)" id="link" type="url" required></input>
+				<button type="submit" id="shorten">Shorten!</button>
+		    </form>
+		    <p><a href="https://a.1mb.site">a.1mb.site</a> is a free to use link shortener which utilizes <a href="https://1mb.site">1mb</a>'s database feature. This link shortener does not save any of your personal data, and only stores links.</p>
+		</div>
+		<script>
+		    function createCORSRequest(method, url) {
+  				var request = new XMLHttpRequest();
+  				if ('withCredentials' in request) {
+  					request.open(method, url, true);
+  				} else if (typeof XDomainRequest != "undefined") {
+  					request = new XDomainRequest();
+  					request.open(method, url);
+  				} else {
+  					request = null;
+  				}
+  				return request;
+  			}
+  			function createLink(url){
+  			    document.getElementById("message").innerHTML = "Shortening link, wont take long...";
+  			    if(!url.startsWith("http://") && !url.startsWith("https://")){
+  			        url = "http://" + url;
+  			    }
+  			    let request = createCORSRequest("POST", "https://api.1mb.site");
+  			    if(!request){
+  			        alert("CORS not supported");
+  			    }else{
+  			        let link = Math.random().toString(36).substring(7);
+  			        request.withCredentials = true;
+  			        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  			        request.send("action=db-insert&username=a&database=links&key=" + link + "&set=" + JSON.stringify(url));
+  			        request.onload = function(){
+  			            let response = JSON.parse(request.responseText);
+  			            if(response.error){
+  			                document.getElementById("message").innerHTML = "Unable to create link: " + response.error + ". Try again later";
+  			                return;
+  			            }
+  			            document.getElementById("message").innerHTML = "Your new link: <a href=\"https://a.1mb.site/" + link + "\" target=\"_blank\">https://a.1mb.site/" + link + "</a>!";
+  			        }
+  			    }
+  			}
+		    let path = window.location.pathname.replace("/", "").toLowerCase();
+		    if(path !== ""){
+		        let request = new XMLHttpRequest();
+		        request.open("GET", "https://api.1mb.site/?action=db-view&username=a&database=links&key=" + path);
+		        request.onload = function(){
+		            if(request.status >= 200 && request.status < 400){
+		                let link = JSON.parse(request.responseText)["data"];
+		                if(!link){
+		                    document.getElementById("message").innerHTML = window.location.href + " is not a shortened link!";
+		                    return;
+		                }
+		                window.location.replace(link);
+		            }
+		        }
+		        request.send();
+		    }
+		    let form = document.querySelector("#shorten");
+		    form.onsubmit = function(e){
+		        let data = new FormData(form);
+		        let datum = "";
+		        data.forEach((value, key) => {datum = value});
+		        if(datum === ""){
+		            
+		        }else{
+		            createLink(datum);
+		            document.querySelector("#link").value = "";
+		        }
+		        e.preventDefault();
+		    }
+		</script>
+	</body>
+</html>

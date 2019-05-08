@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>1MB Forum</title>
+        
+        <!--<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">-->
+        
+        <!-- External files -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,500,700" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/boxicons@1.9.4/css/boxicons.min.css" rel="stylesheet">
+        
+        <!--Internal files-->
+        <script type="text/javascript" src="jquery.js"></script>
+        <link type="text/css" rel="stylesheet" href="normalize.css">
+        <link type="text/css" rel="stylesheet" href="main.css">
+        
+        <!--Main code-->
+        <script type="text/javascript" src="main.js"></script>
+        
+        <!--Viewport for mobile devices-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
+        <!--Disabling cache to make sure everybody has the newest version-->
+        <meta http-equiv="cache-control" content="max-age=0" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+        <meta http-equiv="pragma" content="no-cache" />
+    </head>
+    
+    <body>
+        
+        <!-- Start header -->
+        <div class="header">
+            <div class="normalwidth">
+                
+                <a href="/" class="logo">1MB Forum</a>
+                
+                <div style="float: right; height: 100%; position: relative;">
+                    <div class="onlylogin" style="height: 100%;">
+                        <!-- Welcome, <username> -->
+                        <span id="welcome-msg" style="line-height: 90px; color: white;">...</span>
+                    </div>
+                    
+                    <div class="onlylogout" style="height: 100%">
+                        <!-- Ask the user to login -->
+                        <a class="nicebtn" href="https://account.1mb.site/login?redirect=https://forum.1mb.site" style="margin-top: 24px; display: inline-block;" target="_blank">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End header -->
+        
+        <!-- Start page -->
+        <div id="page" class="page"></div>
+        <!-- End page -->
+        
+    </body>
+    
+</html>

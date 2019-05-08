@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Click</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://gitcdn.xyz/repo/joaopereirawd/cookieBubble/master/dist/cookieBubble.min.css">
+
+    <style>
+    body{
+      font-family: 'Montserrat', sans-serif !important;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #34495e;
+    }
+    h1{
+      font-weight: 900;
+      line-height: 100%;
+    }
+    .fw{
+      width: 99%;
+      height: 99%;
+      text-align: center;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #34495e;
+      cursor: pointer;
+    }
+    .fw div{
+      width: 60%;
+    }
+
+    ::selection {
+      background: none;
+    }
+    ::-moz-selection {
+      background: none;
+    }
+    ::-webkit-selection {
+      background: none;
+    }
+    .best{
+      color: white;
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      font-size: 160%;
+    }
+    .by{
+      color: white;
+      position: absolute;
+      bottom: 15px;
+      right: 30px;
+      font-size: 100%;
+    }
+    .by .fab{
+      color: #1da1f2;
+    }
+    .by a{
+      text-decoration: none;
+      color: white;
+    }
+	.cookieBubble{
+	  max-width: 90%;
+	}
+	#nameLink{
+	  text-decoration: none;
+	  color: white;
+	}
+	#showMe {
+  animation: cssAnimation 0s 1s forwards;
+  opacity: 0; 
+}
+
+@keyframes cssAnimation {
+  to   { opacity: 1; }
+}
+    </style>
+
+
+  </head>
+  <body>
+
+
+    <div class="fw" id="the-fw" onclick="clickit()">
+      <div><h1><span id="count">Click</span></h1></div>
+    </div>
+    <div class="best">
+      <h3>
+        <b>Best Score: </b>
+        <span id="bestScore">000</span>
+		by
+		<a href="https://account.1mb.site" target="_blank" id="nameLink"><u><span id="bestName">anon</span></u></a>
+      </h3>
+    </div>
+    <div class="by">
+      <h2>
+        <a href="https://twitter.com/AnTheMaker" target="_blank"><i class="fab fa-twitter"></i> @AnTheMaker</a>
+      </h2>
+    </div>
+
+    <div class="cookieBubble" id="showMe">
+        <div class="cb-wrapper">
+            <div class="cb-row">
+                <div class="cb-message">
+                    <span>We use cookies to store your score (lol). By continuing to visit this website you agree to our use of cookies.</span>
+                    <a href="javascript:void(0)" class="gotit-btn">GOT IT!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script
+    			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+    			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    			  crossorigin="anonymous"></script>
+    <script src="fitty.js"></script>
+    <script src="cookieBubble.js"></script>
+	<script src="https://console.chat/load.js"></script>
+    <script>
+    fitty('h1');
+    var clicks = 0;
+    var theBest = 1;
+	var theName = "anon";
+    var myName = "";
+	if (myName == '') {
+	  myName = "anon";
+	}
+		
+    $(document).ready(function(){
+      /*$('.cookieBubble').cookieBubble({
+             iconColor:'#34495e',
+             buttonColor: '#34495e'
+        });*/
+        syncBest();
+        clicks = getCookie("myScore");
+    });
+
+
+    function syncBest(){
+      var xmlhttp = new XMLHttpRequest();
+      var url = "https://www.jsonstore.io/d0c7b9927c90a2c90a7330d62d21c224c6c1acdf0ed5e47c1a7467ab7fc8c9e8/best/0";
+      xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              var myArr = JSON.parse(this.responseText);
+              theBest = myArr.result.score;
+              theName = myArr.result.name;
+              $('#bestScore').text(theBest);
+			  $('#bestName').text(theName);
+			  if(theName != "anon"){
+			    $('#nameLink').prop("href", "https://"+theName+".1mb.site");
+			  }else{
+			    $('#nameLink').prop("href", "https://1mb.site");
+			  }
+          }
+      };
+      xmlhttp.open("GET", url, true);
+      xmlhttp.send();
+    }
+
+    function clickit(){
+      clicks++;
+      $('#count').text(clicks);
+      setCookie("myScore", clicks);
+      syncBest();
+      if(clicks > theBest){
+		  console.log('Congrats! New highscore!!!');
+
+        $.ajax({
+            url: "https://www.jsonstore.io/d0c7b9927c90a2c90a7330d62d21c224c6c1acdf0ed5e47c1a7467ab7fc8c9e8/best/0",
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json',
+            processData: false,
+            data: '{"score":'+clicks+',"name":"'+myName+'"}',
+            success: function (data) {
+              syncBest();
+            },
+            error: function(){
+              //alert("Cannot get data");
+            }
+        });
+
+      }
+    }
+
+
+    /*
+    // HeHeHe
+    $(window).keypress(function (e) {
+      if (e.key === ' ' || e.key === 'Spacebar') { // ' ' is standard, 'Spacebar' was used by IE9 and Firefox < 37
+        e.preventDefault()
+        clickit();
+      }
+    });
+    */
+
+    function setCookie(key, value) {
+            var expires = new Date();
+            expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+            document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+        }
+
+        function getCookie(key) {
+            var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+            return keyValue ? keyValue[2] : null;
+        }
+    </script>
+
+  </body>
+</html>

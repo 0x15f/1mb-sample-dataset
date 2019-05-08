@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hitomi.la_zh-TW</title>
+<meta name="google" content="notranslate">
+<meta content="hitomi.la_zh-TW 腳本" name="title">
+<meta content="hitomi.la_zh-TW 腳本" property="og:title">
+<meta content="hitomi.la_zh-TW 腳本" property="twitter:title">
+<meta content="這是在 hitomi.la 網站上運作的腳本，主要是將網頁中的類型、語言、分類標籤和系列英語部分換成中文，以便於了解作品的資訊。" name="description">
+<meta content="這是在 hitomi.la 網站上運作的腳本，主要是將網頁中的類型、語言、分類標籤和系列英語部分換成中文，以便於了解作品的資訊。" property="og:description">
+<meta content="這是在 hitomi.la 網站上運作的腳本，主要是將網頁中的類型、語言、分類標籤和系列英語部分換成中文，以便於了解作品的資訊。" name="twitter:description">
+<meta content="https://zxc129567142.1mb.site/" property="og:url">
+<meta content="https://i.imgur.com/sEb97xgh.jpg" property="og:image">
+<meta content="https://i.imgur.com/sEb97xgh.jpg" name="twitter:image:src">
+<meta content="unsafe-url" name="referrer">
+<meta name="author" content="zxc129567142">
+<meta content="#30425f" name="theme-color">
+<meta content="summary_large_image" name="twitter:card">
+<meta name="keywords" content="hitomi.la,中文,Greasy Fork,Sleazy Fork,UserScript,翻譯,hitomi.la_zh-TW,腳本,zh-TW,Tampermonkey,1mb.site,chinese,adult">
+<meta name="distribution" content="Taiwan" />
+<meta name="robots" content="all">
+<meta name="rating" content="restricted">
+<meta name="revisit-after" content="3 days">
+<meta name="google-site-verification" content="zELFZArblI34slkmjaRK_8cihFluf_AhhacQNgDruuU" />
+<meta name="msvalidate.01" content="AA1DEF13892E5BD14CE6BED15A78160B" />
+<link rel="apple-touch-icon" sizes="57x57" href="//ltn.hitomi.la/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="//ltn.hitomi.la/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="//ltn.hitomi.la/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="//ltn.hitomi.la/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="//ltn.hitomi.la/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="//ltn.hitomi.la/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="//ltn.hitomi.la/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="//ltn.hitomi.la/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="//ltn.hitomi.la/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="//ltn.hitomi.la/favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="//ltn.hitomi.la/favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="//ltn.hitomi.la/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="//ltn.hitomi.la/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="//ltn.hitomi.la/favicon-32x32.png" sizes="32x32">
+<script type="text/javascript" src="https://lib.1mb.site/1mb-latest.js"></script>
+</head>
+
+<body>
+<header>
+<h1><a href="https://hitomi.la/" target="_blank" rel="noopener noreferrer">hitomi.la</a>_zh-TW 腳本</h1>
+<div id="MessageToTheExtraordinaryPerson">
+<span>能看見這訊息代表你是尊爵不凡的使用者</span>
+<span>為了讓您尊爵不凡的身分再升一級</span>
+<span>推薦將瀏覽器升級成以下選項</span>
+<div id="BrowserDownloadLink">
+<a href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer">
+<span>Chrome</span>
+</a>
+<a href="https://www.mozilla.org/zh-TW/firefox/new/" target="_blank" rel="noopener noreferrer">
+<span>Firefox</span>
+</a>
+<a href="https://www.kinza.jp/" target="_blank" rel="noopener noreferrer">
+<span>Kinza</span>
+</a>
+<a href="https://www.opera.com/zh-tw" target="_blank" rel="noopener noreferrer">
+<span>Opera</span>
+</a>
+<a href="https://vivaldi.com/zh-hans/download/" target="_blank" rel="noopener noreferrer">
+<span>Vivaldi</span>
+</a>
+<a href="https://browser.yandex.com/" target="_blank" rel="noopener noreferrer">
+<span>Yandex</span>
+</a>
+</div>
+<span>※是以字母排序</span>
+</div>
+<style>
+#MessageToTheExtraordinaryPerson {
+display: none
+}
+</style>
+</header>
+<main>
+<article id="instinfo">
+<section class="style info">
+<h2>安裝總數</h2>
+<div class="content">
+<span id="installs" class="value">0</span>
+</div>
+</section>
+</article>
+<article id="upinfo">
+<section class="style info">
+<h2>更新檢查總數</h2>
+<div class="content">
+<span id="update_checks" class="value">0</span>
+</div>
+</section>
+</article>
+<article id="introduction">
+<section class="style mod_1">
+<h2>簡介</h2>
+<div class="content">
+<span>這是在 hitomi.la 網站上運作的腳本，主要是將網頁中的類型、語言、分類標籤和系列英語部分換成中文，以便於了解作品的資訊。</span>
+<span>目前包含:Type、Language、Tags(部分)、series等</span>
+<span>目前不考慮:artists、characters</span>
+<span>不考慮中文化的部分 會在腳本更為完善後 再來翻譯一部分</span>
+<br>
+<span>現在不需要每次新增翻譯資料就要更新一次腳本</span>
+<span>在腳本中「Daily = 7」是每7天就會更新翻譯資料</span>
+<span>能夠改成「Daily = 14」、「Daily = 20」之類的數字</span>
+<span>也就是每14天、20天就會更新翻譯資料</span>
+<span>但並不代表每次更新都會有增加翻譯資料</span>
+</div>
+</section>
+</article>
+<article id="number">
+<section class="style mod_1">
+<h2>目前翻譯數</h2>
+<div class="content">
+<span>系列翻譯數:3090</span>
+<span>標籤翻譯數:942</span>
+</div>
+</section>
+</article>
+<article id="hotkey">
+<section class="style mod_2">
+<h2>網頁熱鍵</h2>
+<div class="content">
+<span><b><kbd>A</kbd>、<kbd>⇦</kbd></b> 上一頁</span>
+<span><b><kbd>D</kbd>、<kbd>⇨</kbd></b> 下一頁</span>
+<span><b><kbd>W</kbd></b> 向上滾動</span>
+<span><b><kbd>S</kbd></b> 向下滾動</span>
+<span><b><kbd>Q</kbd></b> 搜尋</span>
+<span><b><kbd>H</kbd></b> 回首頁</span>
+<span>參考：<a href="https://danbooru.donmai.us/static/keyboard_shortcuts">Danbooru</a></span>
+</div>
+</section>
+</article>
+<article id="sample_film">
+<section class="style mod_3">
+<h2>標籤翻譯範例影片</h2>
+<div class="content">
+<span><a href="https://youtu.be/U7g69ISGFIM">https://youtu.be/U7g69ISGFIM</a></span>
+</div>
+</section>
+</article>
+<article id="cht_opt">
+<section class="style mod_3">
+<h2>腳本問題 選項</h2>
+<div class="content">
+<ul>
+<li>系列翻譯數 與 標籤翻譯數
+<span>目前已翻譯數量</span>
+</li>
+<li>手動更新數據
+<span>忽略「Daily」直接更新數據</span>
+<span>更新結果會在上方跑出小提示</span>
+<span>自動更新的間隔會重新計算</span>
+<span>需重新整理才能顯示新數據</span>
+</li>
+<li>中文化問題
+<span>是關於 hitomi.la_zh-TW 腳本的問題回報的問卷</span>
+<span>問卷中每個區塊都有相當重要的說明</span>
+<span>在填寫前請仔細閱讀說明</span>
+<span>※此問卷不會向您索取任何個人隱私資料</span>
+</li>
+<li>其他連結</li>
+</ul>
+</div>
+</section>
+</article>
+<article id="Series_exception">
+<section class="style mod_2">
+<h2>系列 不翻譯標籤</h2>
+<div class="content">
+<table>
+<tbody>
+<tr>
+<td>009-1</td>
+<td>81diver</td>
+<td>.hack</td>
+</tr>
+<tr>
+<td>.hackg.u.</td>
+<td>.hackroots</td>
+<td>.hacksign</td>
+</tr>
+<tr>
+<td>a-ga</td>
+<td>a3</td>
+<td>after...</td>
+</tr>
+<tr>
+<td>air</td>
+<td>aiura</td>
+<td>akb0048</td>
+</tr>
+<tr>
+<td>akb49</td>
+<td>aldnoah.zero</td>
+<td>alias carnival</td>
+</tr>
+<tr>
+<td>all grown up</td>
+<td>all out</td>
+<td>all you need is kill</td>
+</tr>
+<tr>
+<td>anna millers</td>
+<td>anne happy</td>
+<td>another</td>
+</tr>
+<tr>
+<td>ar nosurge</td>
+<td>arago</td>
+<td>at lady</td>
+</tr>
+<tr>
+<td>atelier tanaka</td>
+<td>athena</td>
+<td>atlach-nacha</td>
+</tr>
+<tr>
+<td>b-project</td>
+<td>b.b.idol</td>
+<td>baldr force</td>
+</tr>
+<tr>
+<td>bang dream</td>
+<td>basquash</td>
+<td>battle spirits double drive</td>
+</tr>
+<tr>
+<td>beatstream</td>
+<td>ben 10</td>
+<td>binary pot</td>
+</tr>
+<tr>
+<td>black rock shooter</td>
+<td>blood alone</td>
+<td>blood royale</td>
+</tr>
+<tr>
+<td>bra-ban</td>
+<td>brave girl ravens</td>
+<td>buddy complex</td>
+</tr>
+<tr>
+<td>bully</td>
+<td>buriki one</td>
+<td>burn up scramble</td>
+</tr>
+<tr>
+<td>cafe sourire</td>
+<td>can can bunny</td>
+<td>candy boy</td>
+</tr>
+<tr>
+<td>canvas</td>
+<td>caterpillar</td>
+<td>cavewoman</td>
+</tr>
+<tr>
+<td>cevio</td>
+<td>chaos breaker</td>
+<td>chaos head</td>
+</tr>
+<tr>
+<td>clannad</td>
+<td>classroom crisis</td>
+<td>cleavage</td>
+</tr>
+<tr>
+<td>clover days</td>
+<td>clover hearts</td>
+<td>clover point</td>
+</tr>
+<tr>
+<td>cocoro-navi</td>
+<td>code of joker</td>
+<td>collar x malice</td>
+</tr>
+<tr>
+<td>compiler</td>
+<td>corruption of champions</td>
+<td>dame x prince</td>
+</tr>
+<tr>
+<td>darcrows</td>
+<td>dark judgement</td>
+<td>darker than black</td>
+</tr>
+<tr>
+<td>darkwatch</td>
+<td>darling in the franxx</td>
+<td>days</td>
+</tr>
+<tr>
+<td>deception</td>
+<td>deltarune</td>
+<td>densetsu no ryodan</td>
+</tr>
+<tr>
+<td>dies irae</td>
+<td>discipline</td>
+<td>dog days</td>
+</tr>
+<tr>
+<td>dominion tank police</td>
+<td>dracu-riot</td>
+<td>drakuun</td>
+</tr>
+<tr>
+<td>duck dodgers</td>
+<td>dungeons and princess</td>
+<td>ecoko</td>
+</tr>
+<tr>
+<td>ef a tale of memories</td>
+<td>el viento</td>
+<td>endro</td>
+</tr>
+<tr>
+<td>euphoria</td>
+<td>evolution</td>
+<td>fairly life</td>
+</tr>
+<tr>
+<td>fate apocrypha</td>
+<td>fate extra</td>
+<td>fate grand order</td>
+</tr>
+<tr>
+<td>fate hollow ataraxia</td>
+<td>fate prototype</td>
+<td>fate stay night</td>
+</tr>
+<tr>
+<td>fate zero</td>
+<td>fifth twin</td>
+<td>flcl</td>
+</tr>
+<tr>
+<td>flying dragon</td>
+<td>free</td>
+<td>full ani</td>
+</tr>
+<tr>
+<td>gift</td>
+<td>glasslip</td>
+<td>god sider</td>
+</tr>
+<tr>
+<td>gosick</td>
+<td>gunnerkrigg court</td>
+<td>h2</td>
+</tr>
+<tr>
+<td>h2o footprints in the sand</td>
+<td>hancock</td>
+<td>happiness</td>
+</tr>
+<tr>
+<td>haydee</td>
+<td>hellsinker.</td>
+<td>heroman</td>
+</tr>
+<tr>
+<td>hexe lilli</td>
+<td>heybot</td>
+<td>hinabita</td>
+</tr>
+<tr>
+<td>hiyoko no kimochi</td>
+<td>homestuck</td>
+<td>hosoude sanjouki</td>
+</tr>
+<tr>
+<td>ib</td>
+<td>igpx</td>
+<td>in white</td>
+</tr>
+<tr>
+<td>is</td>
+<td>jane blonde</td>
+<td>jet set radio</td>
+</tr>
+<tr>
+<td>just because</td>
+<td>k</td>
+<td>kanon</td>
+</tr>
+<tr>
+<td>kill la kill</td>
+<td>kite</td>
+<td>lamento</td>
+</tr>
+<tr>
+<td>las lindas</td>
+<td>legend of queen opala</td>
+<td>legend of the cryptids</td>
+</tr>
+<tr>
+<td>little master</td>
+<td>lord of walkure</td>
+<td>lost</td>
+</tr>
+<tr>
+<td>love heaven</td>
+<td>love live</td>
+<td>love live sunshine</td>
+</tr>
+<tr>
+<td>love plus</td>
+<td>lucky dog 1</td>
+<td>maboroshi panty</td>
+</tr>
+<tr>
+<td>machine maiden</td>
+<td>magical antique</td>
+<td>maid in heaven</td>
+</tr>
+<tr>
+<td>mamoru-kun</td>
+<td>manyuuki</td>
+<td>maple colors</td>
+</tr>
+<tr>
+<td>marchen maze</td>
+<td>marginal4</td>
+<td>mezzo forte</td>
+</tr>
+<tr>
+<td>miracle lingerie</td>
+<td>miraculous ladybug</td>
+<td>moekan</td>
+</tr>
+<tr>
+<td>monster</td>
+<td>monster collection</td>
+<td>monster maker</td>
+</tr>
+<tr>
+<td>muv-luv</td>
+<td>muv-luv alternative total eclipse</td>
+<td>nana</td>
+</tr>
+<tr>
+<td>nekopara</td>
+<td>new game</td>
+<td>noel</td>
+</tr>
+<tr>
+<td>noel la neige</td>
+<td>nurse robo</td>
+<td>nursery rhyme</td>
+</tr>
+<tr>
+<td>one off</td>
+<td>ore yuuko</td>
+<td>overlord</td>
+</tr>
+<tr>
+<td>oz</td>
+<td>paperman</td>
+<td>pastel note</td>
+</tr>
+<tr>
+<td>peridot</td>
+<td>phantom of inferno</td>
+<td>phelios</td>
+</tr>
+<tr>
+<td>pigeon blood</td>
+<td>planet guardian</td>
+<td>pon to chimaira</td>
+</tr>
+<tr>
+<td>pop in q</td>
+<td>pop team epic</td>
+<td>power pack</td>
+</tr>
+<tr>
+<td>princess holiday</td>
+<td>princess principal</td>
+<td>prism ark</td>
+</tr>
+<tr>
+<td>private garden</td>
+<td>psyren</td>
+<td>pu-li-ru-la</td>
+</tr>
+<tr>
+<td>pussy saga</td>
+<td>qualidea code</td>
+<td>quartett</td>
+</tr>
+<tr>
+<td>queen emeraldas</td>
+<td>quest of d</td>
+<td>r-15</td>
+</tr>
+<tr>
+<td>rage of the dragons</td>
+<td>re creators</td>
+<td>read or die</td>
+</tr>
+<tr>
+<td>relife</td>
+<td>rewrite</td>
+<td>rideback</td>
+</tr>
+<tr>
+<td>riding bean</td>
+<td>rwby</td>
+<td>sacred seven</td>
+</tr>
+<tr>
+<td>sasuke</td>
+<td>school days</td>
+<td>schumacher</td>
+</tr>
+<tr>
+<td>schwarzesmarken</td>
+<td>sengoku puzzle animal daigassen</td>
+<td>shezow</td>
+</tr>
+<tr>
+<td>shikabane hime</td>
+<td>shimaizuma</td>
+<td>shin ai</td>
+</tr>
+<tr>
+<td>shining</td>
+<td>show by rock</td>
+<td>shuffle</td>
+</tr>
+<tr>
+<td>silent desire</td>
+<td>simoun</td>
+<td>sinoalice</td>
+</tr>
+<tr>
+<td>sketchbook</td>
+<td>sky doll</td>
+<td>slow start</td>
+</tr>
+<tr>
+<td>snatcher</td>
+<td>snow</td>
+<td>sola</td>
+</tr>
+<tr>
+<td>soul catchers</td>
+<td>soul link</td>
+<td>sound horizon</td>
+</tr>
+<tr>
+<td>sound voltex</td>
+<td>spirit of wonder</td>
+<td>ssss.gridman</td>
+</tr>
+<tr>
+<td>starless</td>
+<td>starry sky</td>
+<td>strikers 1945</td>
+</tr>
+<tr>
+<td>sugarless</td>
+<td>suguri</td>
+<td>summer pockets</td>
+</tr>
+<tr>
+<td>sweet pool</td>
+<td>sword girls</td>
+<td>sword world 2.0</td>
+</tr>
+<tr>
+<td>sword world rpg</td>
+<td>swot</td>
+<td>tactical roar</td>
+</tr>
+<tr>
+<td>tail tale</td>
+<td>tako no marine</td>
+<td>tari tari</td>
+</tr>
+<tr>
+<td>tenerezza</td>
+<td>tera</td>
+<td>the saiban</td>
+</tr>
+<tr>
+<td>tiger and bunny</td>
+<td>to heart</td>
+<td>toheart2</td>
+</tr>
+<tr>
+<td>towergirls</td>
+<td>toy pop</td>
+<td>un-go</td>
+</tr>
+<tr>
+<td>undertale</td>
+<td>unlight</td>
+<td>utau</td>
+</tr>
+<tr>
+<td>va-11 hall-a</td>
+<td>van.pai.ya</td>
+<td>venus blood -ragnarok-</td>
+</tr>
+<tr>
+<td>violated heroine</td>
+<td>viper</td>
+<td>viper ctr</td>
+</tr>
+<tr>
+<td>viper f40</td>
+<td>viper gtb</td>
+<td>viper gts</td>
+</tr>
+<tr>
+<td>viper v16</td>
+<td>viprpg</td>
+<td>virus buster serge</td>
+</tr>
+<tr>
+<td>vividred operation</td>
+<td>vocaloid</td>
+<td>voiceroid</td>
+</tr>
+<tr>
+<td>wake up girls</td>
+<td>wander crown</td>
+<td>wii fit</td>
+</tr>
+<tr>
+<td>with you</td>
+<td>wonder momo</td>
+<td>wonder festival mascot</td>
+</tr>
+<tr>
+<td>wonderland wars</td>
+<td>x change</td>
+<td>xxxholic</td>
+</tr>
+<tr>
+<td>yoru to asa no uta</td>
+<td>your diary</td>
+<td>yu-no</td>
+</tr>
+<tr>
+<td>zegapain</td>
+<td>zeroin</td>
+<td>ziga</td>
+</tr>
+<tr>
+<td> </td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</article>
+<article id="update_history">
+<section class="style mod_2">
+<h2>更新歷史</h2>
+<div class="addition">
+<details>
+<summary>點開查看過去更新歷史</summary>
+<ul>
+<li>2.8 版本
+<span>首次發布</span>
+</li>
+<li>2.9 版本
+<span>新增:第X頁翻譯</span>
+<span>修正:每個頁面語言翻譯正常顯示</span>
+</li>
+<li>3.1 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:因詞中有包含 all 而都被翻譯成 全部</span>
+</li>
+<li>3.2 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:標籤中有'-'的符號則不會被翻譯、更換翻譯</span>
+</li>
+<li>3.3 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:幾個標籤更換翻譯</span>
+</li>
+<li>3.6 版本
+<span>新增:一些標籤翻譯、將本子內容說明靠近、顯示本子完整標籤</span>
+<span>修正:標籤為"*-* *"或"* *-*"無法翻譯、更換本子語言無法翻譯、幾個標籤更換翻譯</span>
+</li>
+<li>3.7 版本
+<span>新增:一些標籤翻譯、一些註解</span>
+<span>修正:幾個標籤更換翻譯</span>
+</li>
+<li>3.8 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:幾個標籤更換翻譯</span>
+</li>
+<li>3.9 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:幾個標籤更換翻譯</span>
+</li>
+<li>4.0 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:幾個標籤更換翻譯、修改頁尾RSS錯誤</span>
+</li>
+<li>4.1 版本
+<span>修正:全部XX-X開頭的錯誤</span>
+</li>
+<li>4.2 版本
+<span>修正:將沒作用的功能停用</span>
+</li>
+<li>4.3 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:幾個標籤更換翻譯</span>
+</li>
+<li>4.4 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:幾個標籤更換翻譯</span>
+</li>
+<li>4.5 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:幾個標籤更換翻譯</span>
+</li>
+<li>5.0 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:刪除重複標籤、更換部分翻譯方式</span>
+</li>
+<li>5.1 版本
+<span>新增:一些標籤翻譯</span>
+<span>修正:幾個標籤更換翻譯</span>
+</li>
+<li>5.2 版本
+<span>修正:暫時取消非必要功能</span>
+</li>
+<li>5.5 版本
+<span>新增:一些標籤翻譯、一些系列翻譯</span>
+</li>
+<li>5.6 版本
+<span>新增:一些標籤翻譯、一些系列翻譯</span>
+<span>修正:翻譯誤判標籤</span>
+</li>
+<li>5.7 版本
+<span>新增:一些標籤翻譯、一些系列翻譯</span>
+</li>
+<li>5.8 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>6.0 版本
+<span>新增:一些標籤翻譯、一些系列翻譯</span>
+<span>修正:無法翻譯含有多個-或.的標籤</span>
+</li>
+<li>6.1 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>6.2 版本
+<span>新增:一些標籤翻譯、一些系列翻譯</span>
+</li>
+<li>6.3 版本
+<span>新增:一些標籤翻譯、一些系列翻譯</span>
+</li>
+<li>6.4 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>6.5 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>6.6 版本
+<span>新增:一些系列翻譯、一些標籤翻譯、讓翻譯在系列頁面有效</span>
+</li>
+<li>6.7 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>6.8 版本
+<span>新增:一些系列翻譯、一些標籤翻譯、增加"拉丁語"</span>
+</li>
+<li>6.9 版本
+<span>新增:"中文化問題"選項</span>
+</li>
+<li>7.0 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>7.1 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>7.2 版本
+<span>新增:一些系列翻譯</span>
+<span>修正:"拉丁語"判定</span>
+</li>
+<li>7.3 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>7.4 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>7.5 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>7.6 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>7.7 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>7.8 版本
+<span>新增:一些系列翻譯、熱鍵</span>
+</li>
+<li>7.9 版本
+<span>新增:一些系列翻譯、刪幾個廣告框</span>
+</li>
+<li>8.0 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>8.1 版本
+<span>新增:一些系列翻譯</span>
+<span>修正:全部頁面標題改名</span>
+</li>
+<li>8.2 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>8.3 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>8.5 版本
+<span>新增:一些系列翻譯</span>
+<span>修正:解決JS再生內容無法翻譯</span>
+</li>
+<li>8.6 版本
+<span>修正:解決"全部"與閱讀頁面無法翻譯</span>
+</li>
+<li>8.7 版本
+<span>新增:一些系列翻譯</span>
+<span>修正:翻譯判斷上的問題</span>
+</li>
+<li>8.8 版本
+<span>新增:一些系列翻譯</span>
+<span>修正:"語言"旁小箭頭圖示、此腳本圖示</span>
+</li>
+<li>8.9 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>9.0 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>9.1 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>9.2 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>9.3 版本
+<span>新增:一些系列翻譯</span>
+<span>修正:使用系統快速鍵網頁不受影響</span>
+</li>
+<li>9.4 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>9.5 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>9.6 版本
+<span>新增:一些系列翻譯、一些標籤翻譯</span>
+<span>修正:更換幾個標籤翻譯</span>
+</li>
+<li>9.8 版本
+<span>新增:一些系列翻譯、一些標籤翻譯</span>
+<span>修正:語言 翻譯方式</span>
+</li>
+<li>10 版本
+<span>新增:一些系列翻譯、一些標籤翻譯</span>
+<span>修正:腳本翻譯方式、刪除多餘的東西</span>
+</li>
+<li>10.1 版本
+<span>新增:一些系列翻譯、一些標籤翻譯</span>
+<span>修正:搜尋頁面換頁後無法翻譯</span>
+</li>
+<li>10.2 版本
+<span>新增:一些系列翻譯、一些標籤翻譯、增加"波斯語"</span>
+</li>
+<li>10.3 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>10.4 版本
+<span>新增:一些系列翻譯、一些標籤翻譯</span>
+<span>修正:"波斯語"翻譯、幾個標籤翻譯</span>
+</li>
+<li>10.5 版本
+<span>新增:一些系列翻譯、一些標籤翻譯</span>
+<span>修正:幾個標籤翻譯</span>
+</li>
+<li>10.6 版本
+<span>新增:一些系列翻譯</span>
+</li>
+</ul>
+</details>
+</div>
+<div class="content">
+<ul>
+<li>10.7 版本
+<span>新增:一些系列翻譯</span>
+</li>
+<li>11.2 版本
+<span>修正:重複的 系列\標籤\"波斯語" 翻譯條件、減少 語言 翻譯判斷、腳本翻譯方式</span>
+</li>
+<li>11.5 版本
+<span>新增:腳本問題 選項、增加"蒙古語"</span>
+<span>修正:翻譯數據更新方式、腳本翻譯方式</span>
+</li>
+<li>11.6 版本
+<span>修正:在搜尋頁面無法使用熱鍵功能且換頁後無法翻譯</span>
+</li>
+<li>11.7 版本
+<span>新增:localStorage</span>
+<span>修正:Greasy Fork 的腳本說明 重複區塊</span>
+</li>
+<li>12.0 版本
+<span>修正:GM_setValue 與 GM_getValue 換成 localStorage.setItem() 與 localStorage.getItem()、刪除 GM_setValue 所儲存的值、改進翻譯流程</span>
+</li>
+</ul>
+</div>
+</section>
+</article>
+<article id="known_issue">
+<section class="style mod_3">
+<h2>已知問題</h2>
+<div class="content">
+<ul>
+<li>頁面上能然有機會無法翻譯需重整解決</li>
+<li>搜尋頁面使用熱鍵換頁在開發人員工具會跳出錯誤訊息</li>
+</ul>
+</div>
+</section>
+</article>
+<article id="other">
+<section class="style mod_1">
+<h2>其他</h2>
+<div class="content">
+<span>為何首發就v2.8呢~</span>
+<span>這腳本也寫了一周多了，做了不少次修改和增加，版本號就順著增加。</span>
+<span>在當時並沒想要上傳，也只是好玩而已，但製作了一周後，好像有點樣子，於是就將腳本上傳拉~</span>
+<br>
+<span>由於我是在製作這腳本時才開始學的</span>
+<span>所以在腳本中也許有不少不成熟的地方</span>
+<span>歡迎能夠提出</span>
+<span>或是提供 hitomi.la 的標籤、角色、系列的英和中文本</span>
+</div>
+</section>
+</article>
+<article id="more">
+<section class="style mod_2">
+<h2>更多</h2>
+<div class="content">
+<span>腳本位置： <a href="https://greasyfork.org/zh-TW/scripts/23864-hitomi-la-zh-tw"
+target="_blank" rel="noopener noreferrer">Greasy
+Fork</a>(需登入)、
+<a href="https://sleazyfork.org/zh-TW/scripts/23864-hitomi-la-zh-tw" target="_blank" rel="noopener noreferrer">Sleazy
+Fork</a> </span>
+<span>巴哈小屋： <a href="https://home.gamer.com.tw/creationDetail.php?sn=4249880"
+target="_blank" rel="noopener noreferrer">文章位置</a>(需登入)
+</span>
+</div>
+</section>
+</article>
+</main>
+<footer id="footer"></footer>
+<link rel="stylesheet" href="https://ucarecdn.com/ae98801f-2240-4d20-b06e-6993184a9cc2/reset.css">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./style_for_ie.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.0/dist/jquery.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
